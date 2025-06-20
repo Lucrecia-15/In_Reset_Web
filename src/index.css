@@ -36,7 +36,7 @@
 
 
 
-.modal-content {
+.modal-container {
   max-height: 70vh; /* máximo 70% de la altura de la ventana */
   overflow-y: auto; /* permite scroll vertical */
   padding: 1rem; /* opcional, para que no quede pegado */

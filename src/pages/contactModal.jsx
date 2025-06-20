@@ -17,13 +17,32 @@ const ContactModal = ({ show, handleClose }) => {
     coCreacion: false,
   });
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+const handleChange = (e) => {
+  const { name, value, type, checked } = e.target;
+
+  // Si el campo es uno de los intereses
+  const interestKeys = ['empresasMarcas', 'inversores', 'patrocinadores', 'coCreacion'];
+
+  if (type === 'checkbox' && interestKeys.includes(name)) {
+    // Si se está seleccionando uno, desmarcar los demás
+    const newInterests = interestKeys.reduce((acc, key) => {
+      acc[key] = key === name ? checked : false;
+      return acc;
+    }, {});
+
+    setFormData({
+      ...formData,
+      ...newInterests
+    });
+  } else {
+    // Cambio normal (texto o privacidad)
     setFormData({
       ...formData,
       [name]: type === 'checkbox' ? checked : value,
     });
-  };
+  }
+};
+
 
   const WEB3FORMS_ACCESS_KEY = "d044fe50-f8b6-4957-9bc1-b570bd11e785"; // Usa tu propia key
 
