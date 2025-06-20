@@ -1,0 +1,230 @@
+/* Hero.css */
+
+/* Animaciones */
+@keyframes scrollInfinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Estilos del componente Hero */
+.hero-section {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrado vertical base */
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-bottom: clamp(8%, 12vh, 15%); /* Espacio para el carousel */
+  margin-top: -7rem; /* Ajuste fino para centrar mejor */
+}
+
+.hero-3d-placeholder {
+  min-height: clamp(200px, 30vh, 400px);
+}
+
+.hero-description {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-description.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hero-description-text {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  font-weight: 300;
+  font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+  text-align: justify;
+  margin-bottom: 0;
+  padding: 0 1rem;
+}
+
+.hero-description-highlight {
+  color: #8B5CF6;
+  font-weight: 500;
+}
+
+/* Carousel de premios */
+.awards-carousel {
+  position: absolute;
+  bottom: clamp(8%, 12vh, 15%);
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: all 1s ease 1s;
+  overflow: hidden;
+}
+
+.awards-carousel.visible {
+  opacity: 1;
+}
+
+.awards-carousel-container {
+  background: rgba(139, 92, 246, 0.08);
+  border-top: 1px solid rgba(139, 92, 246, 0.2);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+  padding: clamp(8px, 2vh, 12px) 0;
+  backdrop-filter: blur(10px);
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.awards-scroll {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.awards-scroll.animated {
+  animation: scrollInfinite 25s linear infinite;
+}
+
+.award-item {
+  color: #8B5CF6;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  font-weight: 500;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+  transition: color 0.2s ease, transform 0.2s ease;
+  transform: scale(1);
+  transform-origin: center;
+  cursor: default;
+  display: inline-block;
+}
+
+.award-item:hover {
+  color: #A855F7 !important;
+  transform: scale(1.02) !important;
+}
+
+.award-separator {
+  width: clamp(3px, 0.5vw, 4px);
+  height: clamp(3px, 0.5vw, 4px);
+  border-radius: 50%;
+  background: #8B5CF6;
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+/* Responsive Design */
+
+/* Mejoras específicas para móvil */
+@media (max-width: 575px) {
+  .hero-section .container-fluid {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .hero-content {
+    margin-top: -1rem; /* Ajuste específico para móvil */
+  }
+  
+  .hero-section .row > div {
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-section .row > div:last-child {
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+  
+  /* Acercar el párrafo a las palabras principales en móvil */
+  .description-container {
+    margin-top: -1rem !important;
+    transform: translateY(-12rem);
+  }
+}
+
+@media (max-width: 991px) {
+  .hero-content {
+    margin-top: -1.5rem; /* Más centrado en tablets */
+  }
+  
+  .hero-section .row > div:first-child {
+    margin-bottom: 1rem;
+  }
+  
+  .hero-section .row > div:last-child {
+    margin-top: 0.5rem;
+  }
+  
+  /* Acercamiento adicional en tablets y móviles grandes */
+  .description-container {
+    margin-top: 10px !important;
+  }
+  
+  .hero-description-text {
+    text-align: center !important;
+    hyphens: auto;
+    word-break: break-word;
+  }
+}
+
+/* Ajustes para tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+  .hero-section .col-lg-3 {
+    max-width: 45%;
+    flex: 0 0 45%;
+  }
+  
+  .hero-section .col-lg-6 {
+    max-width: 100%;
+    flex: 0 0 100%;
+    order: -1;
+  }
+}
+
+/* Utilidades responsive de Bootstrap personalizadas */
+@media (max-width: 991px) {
+  .text-lg-start {
+    text-align: center !important;
+  }
+  
+  .text-lg-end {
+    text-align: center !important;
+  }
+  
+  .mx-lg-0 {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  .px-lg-0 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}

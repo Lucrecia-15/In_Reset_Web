@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Tomorrow:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Michroma&family=Oswald:wght@200..700&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+:root {
+  --font-title: 'Tomorrow', sans-serif;
+  --font-body: 'Inter', sans-serif;
+   --font-secondary: 'Saira Condensed', sans-serif;
+  --color-lila: #C084FC;
+}
+
+
+/* --- Corrección para el modal del Footer --- */
+.footer-modal-content,
+.footer-modal-content * {
+  color: white !important;
+}
+.footer-modal-content,
+.footer-modal-content p,
+.footer-modal-content a,
+.footer-modal-content button,
+.footer-modal-content label,
+.footer-modal-content small,
+.footer-modal-content span,
+.footer-modal-content ul,
+.footer-modal-content li {
+  font-family: var(--font-secondary);
+  font-weight: 300;
+  letter-spacing: normal;
+  line-height: 1.5;
+  color: white; /* fuerza blanco */
+  text-transform: none;
+  margin-bottom: 0.75rem; /* opcional para separar ítems */
+  padding-left: 1.2rem; /* para las listas */
+}
+
+
+
+.modal-content {
+  max-height: 70vh; /* máximo 70% de la altura de la ventana */
+  overflow-y: auto; /* permite scroll vertical */
+  padding: 1rem; /* opcional, para que no quede pegado */
+}
+
+h1.hero-title, .glow-text {
+  font-family: var(--font-title);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-lila);
+}
+
+h4, h5{
+  font-family: var(--font-title);
+  font-weight: 500 !important;; /* Súper fino */
+  color: var(--color-lila);
+  letter-spacing: -0.005em;
+}
+
+p, a, button, label, small, span, .text-white-50, .fw-light {
+  font-family: var(--font-secondary);
+  font-weight: 300;
+  letter-spacing: normal;
+  line-height: 1.5;
+  color: var(--color-lila);
+  text-transform: none;
+}
+
+/* El resto de tu CSS sigue igual */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ... resto de estilos de navbar y media queries ... */
+
+
+
+html, body {
+    height: 100%; /* Asegura que html y body ocupen toda la altura */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita scroll horizontal */
+    scroll-behavior: smooth; /* Opcional: scroll suave */
+}
+
+body {
+    background-color: #0a0a0a; /* ¡El color base sólido que siempre debe estar! */
+    position: relative; /* Necesario para z-index si el contenido usa absolute */
+    min-height: 100vh; /* Asegura que el body tenga al menos la altura de la ventana */
+}
+
+
+
+.navbar > .container-fluid {
+    padding-left: 0 !important; /* Elimina padding a la izquierda */
+    padding-right: 0 !important; /* Elimina padding a la derecha */
+}
+
+/* Anula padding y ajusta margen del logo */
+.navbar-brand {
+    padding: 0 !important;
+    /* Margin izquierdo para separar el logo del borde. Ajusta este valor. */
+    margin-left: 30px !important; 
+    /* Eliminar cualquier margin-right que pueda empujar el logo demasiado a la derecha */
+    margin-right: 0 !important; 
+}
+
+/* Ajusta el tamaño de la imagen del logo dentro de la navbar. */
+/* Aumentamos el width para que sea más visible. */
+.navbar-brand img {
+    width: 150px !important; /* Aumentado considerablemente. Ajusta este valor (ej. 120px, 180px) */
+    height: auto !important; /* Mantiene la proporción */
+    max-height: 50px !important; /* Para que no se haga excesivamente alto si el width es muy grande */
+}
+
+/* Asegura que los elementos del menú se justifiquen a la derecha */
+/* Quitamos margin-left del primer item para no crear un espacio innecesario */
+.navbar-collapse {
+    justify-content: flex-end !important; /* Empuja el menú a la derecha */
+}
+
+/* Ajusta el margen entre los elementos del menú */
+.navbar-nav .nav-item {
+    margin-left: 20px !important; /* Espacio entre los elementos del menú */
+    margin-right: 0 !important; /* Elimina cualquier margin-right si el link ya tiene mx-2 o similar */
+}
+
+/* Ajuste del último elemento del menú para que no tenga un margen extra al final */
+.navbar-nav .nav-item:last-child {
+    margin-right: 30px !important; /* Margen derecho para separar el último enlace del borde. Ajusta este valor. */
+}
+
+/* Responsivo para dispositivos pequeños (menos de 992px) */
+@media (max-width: 991.98px) {
+    .navbar > .container-fluid {
+        padding-left: 15px !important; 
+        padding-right: 15px !important;
+    }
+
+    .navbar-brand {
+        margin-left: 0 !important; /* Sin margen extra a la izquierda en móvil */
+    }
+
+    .navbar-brand img {
+        width: 120px !important; /* Ajusta el tamaño del logo para móviles */
+        max-height: 40px !important;
+    }
+
+    .navbar-collapse {
+        justify-content: flex-start !important; /* Menú colapsado a la izquierda */
+        text-align: left; /* Alinea el texto a la izquierda en el menú colapsado */
+    }
+
+    .navbar-nav .nav-item {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 8px 15px !important; /* Padding para los items cuando están apilados */
+    }
+
+    .navbar-nav .nav-item:last-child {
+        margin-right: 0 !important; 
+    }
+}
